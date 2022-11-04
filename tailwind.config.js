@@ -3,6 +3,7 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   content:[
     'components/**/*.{vue,js,ts}',
+    "./node_modules/flowbite/**/*.js",
     'layouts/**/*.vue',
     'pages/**/*.vue',
     'composables/**/*.{js,ts}',
@@ -43,5 +44,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('flowbite/plugin')],
 }

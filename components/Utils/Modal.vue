@@ -12,8 +12,8 @@
           :class="fullScreen ? `w-11/12 ` : `w-11/12 lg:w-1/2`"
           class="modal items-center flex justify-center rounded"
         >
-          <div class="w-full bg-gray-900">
-            <div class="w-full flex justify-between bg-gray-800 py-3 px-4">
+          <div class="w-full bg-gray-900 rounded-b">
+            <div class="w-full flex justify-between bg-gray-800 py-3 px-4 rounded-t">
               <p class="text-white">
                 <slot name="title"></slot>
               </p>
@@ -37,7 +37,7 @@
                 </svg>
               </button>
             </div>
-            <div class="py-4 px-5 min-h-0 max-h-96 overflow-y-scroll">
+            <div class="py-4 px-5 min-h-0 max-h-96 overflow-y-scroll rounded-b">
               <slot name="body" />
             </div>
           </div>
