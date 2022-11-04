@@ -2,10 +2,10 @@ require("dotenv").config();
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
-  server: {
-    host: "192.168.1.31",
-    port: 3000,
-  },
+  // server: {
+  //   host: "192.168.1.31",
+  //   port: 3000,
+  // },
 
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",

@@ -3,7 +3,7 @@
     <div class="min-h-screen text-gray-50 container py-8">
       <Navbar></Navbar>
       <div class="flex justify-between mt-4">
-        <div class="">Files - ({{ files.length }})</div>
+        <div class>Files - ({{ files.length }})</div>
         <div class="flex flex-row items-center space-x-2">
           <!-- <button
             @click="loginWithGoogle()"
@@ -26,7 +26,7 @@
               ></path>
             </svg>
             Sign in with Google
-          </button> -->
+          </button>-->
           <button
             @click="isActive = true"
             type="button"
@@ -53,7 +53,7 @@
         </div>
       </div>
       <div
-        class="grid grid-flow-row grid-cols-2 lg:grid-cols-8 2xl:grid-cols-12 gap-4 lg:gap-6 mt-4"
+        class="grid grid-flow-row grid-cols-2 lg:grid-cols-6 2xl:grid-cols-12 gap-4 lg:gap-6 mt-4"
       >
         <span v-for="(i, index) in files" :key="index">
           <Card :item="i"></Card>
@@ -91,6 +91,9 @@ export default {
       files: [],
     };
   },
+  created() {
+    this.listen();
+  },
   async asyncData({ $axios, store, route }) {
     const { data } = await client.from("files").select("*");
     return { files: data };
@@ -110,8 +113,18 @@ export default {
         console.log(error);
       }
     },
+    async listen() {
+      client
+        .channel("public:files")
+        .on(
+          "postgres_changes",
+          { event: "INSERT", schema: "public", table: "files" },
+          (payload) => {
+            this.files.unshift(payload.new);
+          }
+        )
+        .subscribe();
+    },
   },
 };
 </script>
-
-// https://dcedhgimhhrpqrjyvddk.supabase.co/auth/v1/callback //
