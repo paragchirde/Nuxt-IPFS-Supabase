@@ -12,7 +12,18 @@
         <p class="mb-2 tracking-tight mt-2 text-sm">
           {{ item.name }}
         </p>
-        <p class="font-normal truncate text-xs">Size:{{ niceBytes(item.size) }}</p>
+        <div class="flex flex-row space-x-1 items-center">
+          <p class="h-8 w-8 rounded-full">
+            <img
+              class="h-full w-full rounded-full"
+              :src="`https://avatars.dicebear.com/api/micah/${item.user}.svg`"
+            />
+          </p>
+          <p class="text-sm leading-snug">
+            {{ item.user }} <br />
+            <small> Size:{{ niceBytes(item.size) }} </small>
+          </p>
+        </div>
       </div>
     </a>
   </div>

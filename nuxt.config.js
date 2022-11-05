@@ -2,10 +2,10 @@ require("dotenv").config();
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
-  // server: {
-  //   host: "192.168.1.31",
-  //   port: 3000,
-  // },
+  server: {
+    host: "192.168.1.31",
+    port: 3000,
+  },
 
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
@@ -22,6 +22,7 @@ export default {
     CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
     CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
     CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
+    FORMAIL_API_KEY: process.env.FORMAIL_API_KEY,
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -42,7 +43,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/mitt.client.js", "~/plugins/utils.client.js"],
+  plugins: ["~/plugins/mitt.client.js", "~/plugins/utils.client.js", "~/plugins/refresh.client.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

@@ -1,5 +1,11 @@
 <template>
   <div class="flex flex-col space-y-4">
+    <!--  -->
+    <audio
+      id="audioT"
+      src="https://res.cloudinary.com/phineas31/video/upload/v1667651732/d-libgen/mixkit-fast-small-sweep-transition-166_qo3okl.mp3"
+    ></audio>
+    <!--  -->
     <div>
       <label class="text-sm text-white" for="File name">*File Name </label>
       <input
@@ -238,7 +244,6 @@ export default {
           uploadPreset: "tnl7jvi7",
         })
         .then((res) => {
-          console.log("C", res.url);
           this.banner = res.url;
           this.addToSupabase();
         })
@@ -262,9 +267,15 @@ export default {
           cid: JSON.stringify(this.cid),
           size: this.size,
           banner: this.banner,
+          user_id: this.$store.state.user.user.id,
+          user: this.$store.state.user.user.user_metadata.name,
+          views: 0,
         },
       ]);
       if (error === null) {
+        new Audio(
+          "https://res.cloudinary.com/phineas31/video/upload/v1667651732/d-libgen/mixkit-fast-small-sweep-transition-166_qo3okl.mp3"
+        ).play();
         this.$toasted.success("Ahoy! File uploaded successfully", {
           theme: "bubble",
           position: "bottom-center",
