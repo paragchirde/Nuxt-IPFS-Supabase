@@ -21,20 +21,19 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-      env: 
-        INFURA_ID:2GzvlH9pvo7vhVUQE2ydp2pdefz
-        INFURA_KEY:5e8137f925d1ae22cd46b6fb87cf65ab
-        SUPABASE_URL:https://dcedhgimhhrpqrjyvddk.supabase.co
-        SUPABASE_KEY:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRjZWRoZ2ltaGhycHFyanl2ZGRrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2NzIxMzE0OSwiZXhwIjoxOTgyNzg5MTQ5fQ.5imaoNaHstWoaOvdeJF0zTUwIIRl0dLepWmXs927Mhw
-        PINATA_KEY:6e84f0ad91740ad6eba2
-        PINATA_SECRET:22cb10dd88224b1d27ace1f8addcb6d29b69fe853ffdc103f0987b7b31bbe1ba
-        PINATA_JWT:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI5YTlmNTY4MS0xNjA4LTRhY2YtYjU4Ni0xNjIxNjE5NjU0MzgiLCJlbWFpbCI6InBhcmFndGVjaDMxQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaW5fcG9saWN5Ijp7InJlZ2lvbnMiOlt7ImlkIjoiRlJBMSIsImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxfV0sInZlcnNpb24iOjF9LCJtZmFfZW5hYmxlZCI6ZmFsc2UsInN0YXR1cyI6IkFDVElWRSJ9LCJhdXRoZW50aWNhdGlvblR5cGUiOiJzY29wZWRLZXkiLCJzY29wZWRLZXlLZXkiOiI2ZTg0ZjBhZDkxNzQwYWQ2ZWJhMiIsInNjb3BlZEtleVNlY3JldCI6IjIyY2IxMGRkODgyMjRiMWQyN2FjZTFmOGFkZGNiNmQyOWI2OWZlODUzZmZkYzEwM2YwOTg3YjdiMzFiYmUxYmEiLCJpYXQiOjE2Njc0MDc1MTN9.6Gi1V9qCg1bI8asEwfIilPHQqmkUfr_cGp-p-fKgCCk
-        GOOGLE_CLIENT_ID:13674252133-ihevk1dilkef3gdjva5uoc1m89ttdtvv.apps.googleusercontent.com
-        GOOGLE_CLIENT_SECRET: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
-        CLOUDINARY_CLOUD_NAME:phineas31
-        CLOUDINARY_API_KEY:562221548511422
-        CLOUDINARY_API_SECRET:in7u-0YAsjW25uW9yje8BkEWRKM
-        FORMAIL_API_KEY:bHPYbAOSlPHPWzoN
-
+      env:
+        INFURA_ID: ${{secrets.INFURA_ID}}
+        INFURA_KEY: ${{secrets.INFURA_KEY}}
+        SUPABASE_URL: ${{secrets.SUPABASE_URL}}
+        SUPABASE_KEY: ${{secrets.SUPABASE_KEY}}
+        PINATA_KEY: ${{secrets.PINATA_KEY}}
+        PINATA_SECRET: ${{secrets.PINATA_SECRET}}
+        PINATA_JWT: ${{secrets.PINATA_JWT}}
+        GOOGLE_CLIENT_ID: ${{secrets.GOOGLE_CLIENT_ID}}
+        GOOGLE_CLIENT_SECRET: ${{secrets.GOOGLE_CLIENT_SECRET}}
+        CLOUDINARY_CLOUD_NAME: ${{secrets.CLOUDINARY_CLOUD_NAME}}
+        CLOUDINARY_API_KEY: ${{secrets.CLOUDINARY_API_KEY}}
+        CLOUDINARY_API_SECRET: ${{secrets.CLOUDINARY_API_SECRET}}
+        FORMAIL_API_KEY: ${{secrets.FORMAIL_API_KEY}}
     - run: npm i
     - run: npm run generate --if-present
