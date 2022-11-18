@@ -260,6 +260,9 @@ export default {
     },
     // UPDATE RECORD TO SUPABASE
     async addToSupabase() {
+      console.log("ok IN Supabase");
+      let u = JSON.parse(localStorage.getItem("user"));
+      console.log("ok", this.cid, u);
       const { data, error } = await client.from("files").insert([
         {
           name: this.name,
@@ -267,8 +270,8 @@ export default {
           cid: JSON.stringify(this.cid),
           size: this.size,
           banner: this.banner,
-          user_id: JSON.parse(this.$store.state.user.user.id),
-          user: JSON.parse(this.$store.state.user.user.user_metadata.name),
+          user_id: u.user.id,
+          user: u.user.user_metadata,
           views: 0,
         },
       ]);
