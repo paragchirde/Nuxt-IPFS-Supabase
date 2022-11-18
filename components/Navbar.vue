@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="flex flex-wrap justify-between items-center mx-auto">
-      <a class="flex flex-row items-center space-x-1">
+      <nuxt-link to="/" class="flex flex-row items-center space-x-1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -18,9 +18,9 @@
         </svg>
 
         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-          D-Libgen - {{ checkAuth }}</span
+          D-Libgen</span
         >
-      </a>
+      </nuxt-link>
       <div class="flex flex-row items-center space-x-2">
         <div v-if="checkAuth" class="flex flex-row space-x-2 items-center">
           <button
@@ -37,9 +37,21 @@
           >
             Logout
           </button>
-          <div class="leading-snug">
+          <nuxt-link to="/my-posts">
+            <button
+              type="button"
+              class="text-white uppercase bg-gray-800 hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55"
+            >
+              My Posts
+            </button>
+          </nuxt-link>
+          <img
+            class="h-8 w-8 rounded-full"
+            :src="`https://avatars.dicebear.com/api/micah/${getUser.user_metadata.name}.svg`"
+          />
+          <div class="leading-tight">
             <small>Hello,</small> <br />
-            <strong>{{ getUser.user_metadata.name }} </strong>
+            <strong class="text-sm">{{ getUser.user_metadata.name }} </strong>
           </div>
         </div>
         <div v-else>

@@ -87,7 +87,7 @@ export default {
         this.$toasted.success("Logged in successfully", {
           theme: "bubble",
           position: "bottom-center",
-          duration: 5000,
+          duration: 2000,
         });
         this.$store.state.user = JSON.stringify(data);
         localStorage.setItem("user", JSON.stringify(data));

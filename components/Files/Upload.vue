@@ -267,8 +267,8 @@ export default {
           cid: JSON.stringify(this.cid),
           size: this.size,
           banner: this.banner,
-          user_id: this.$store.state.user.user.id,
-          user: this.$store.state.user.user.user_metadata.name,
+          user_id: JSON.parse(this.$store.state.user.user.id),
+          user: JSON.parse(this.$store.state.user.user.user_metadata.name),
           views: 0,
         },
       ]);
