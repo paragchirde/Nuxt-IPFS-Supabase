@@ -21,19 +21,19 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-      env:
-        INFURA_ID: ${{secrets.INFURA_ID}}
-        INFURA_KEY: ${{secrets.INFURA_KEY}}
-        SUPABASE_URL: ${{secrets.SUPABASE_URL}}
-        SUPABASE_KEY: ${{secrets.SUPABASE_KEY}}
-        PINATA_KEY: ${{secrets.PINATA_KEY}}
-        PINATA_SECRET: ${{secrets.PINATA_SECRET}}
-        PINATA_JWT: ${{secrets.PINATA_JWT}}
-        GOOGLE_CLIENT_ID: ${{secrets.GOOGLE_CLIENT_ID}}
-        GOOGLE_CLIENT_SECRET: ${{secrets.GOOGLE_CLIENT_SECRET}}
-        CLOUDINARY_CLOUD_NAME: ${{secrets.CLOUDINARY_CLOUD_NAME}}
-        CLOUDINARY_API_KEY: ${{secrets.CLOUDINARY_API_KEY}}
-        CLOUDINARY_API_SECRET: ${{secrets.CLOUDINARY_API_SECRET}}
-        FORMAIL_API_KEY: ${{secrets.FORMAIL_API_KEY}}
+    - run: |
+        touch .env
+        echo INFURA_ID=${{ secrets.INFURA_ID }} >> .env
+        echo INFURA_KEY=${{ secrets.INFURA_KEY }} >> .env
+        echo SUPABASE_URL=${{ secrets.SUPABASE_URL }} >> .env
+        echo SUPABASE_KEY=${{ secrets.SUPABASE_KEY }} >> .env
+        echo PINATA_KEY=${{ secrets.PINATA_KEY }} >> .env
+        echo PINATA_SECRET=${{ secrets.PINATA_SECRET }} >> .env
+        echo GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }} >> .env
+        echo GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }} >> .env
+        echo CLOUDINARY_CLOUD_NAME=${{ secrets.CLOUDINARY_CLOUD_NAME }} >> .env
+        echo CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }} >> .env
+        echo CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }} >> .env
+        echo FORMAIL_API_KEY=${{ secrets.FORMAIL_API_KEY }} >> .env
     - run: npm i
     - run: npm run generate --if-present
